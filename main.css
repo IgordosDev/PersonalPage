@@ -42,12 +42,21 @@ body {
 
 .profile-container {
 	display: flex;
-	flex-direction: row; /* Явно указываем горизонтальное направление */
+	flex-direction: row;
 	align-items: flex-start;
-	gap: 45px; /* Отступ 45px между элементами */
-	max-width: 1205px; /* 300px + 45px + 860px */
-	margin: 0 auto; /* Центрируем контейнер */
+	gap: 45px;
+	max-width: 1205px;
+	margin: 0 auto;
 	flex-wrap: wrap;
+	position: relative;
+}
+
+.profile-container .banners {
+	position: absolute;
+	left: 270px;
+	top: 100%;
+	margin-top: 15px;
+	width: 860px;
 }
 
 .avatar {
@@ -61,25 +70,31 @@ body {
 	width: 860px;
 	background: rgba(0, 0, 0, 0.4);
 	border-radius: 5px;
-	border: 25px solid transparent; /* Рамка 25px */
+	border: 25px solid transparent;
 	box-sizing: border-box;
 	min-height: 235px;
 }
 
-/* Контент внутри прямоугольника */
-.info-content {
-	color: white;
-}
-
 .info-content h1 {
 	margin-top: 0;
+	margin-bottom: 10px;
 	font-size: 2em;
 }
 
 .info-content p {
-	line-height: 1.5; /* Уменьшил с 1.6 */
-	margin-bottom: 6px; /* Уменьшил с 10px */
+	line-height: 1.5;
+	margin-top: 0;
+	margin-bottom: 6px;
 	font-size: larger;
+}
+
+.info-content > h1 {
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+	text-overflow: ellipsis;
+	display: -webkit-inline-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .song {
@@ -102,6 +117,103 @@ body {
 	text-overflow: ellipsis;
 }
 
+.links-box {
+    position: absolute;
+    top: 245px;
+    left: 0;
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    max-width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.link-item span {
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    margin-right: 18px;
+    white-space: nowrap;
+}
+
+.link-item i,
+.link-item img {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+.link-item img {
+    object-fit: contain;
+}
+
+.banners {
+    margin-top: 15px;
+    width: 860px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.wide-banners {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.buttons-banners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.attribution-link {
+    position: absolute;
+    left: 270px;
+    top: 100%;
+    margin-top: 90px;
+    width: 860px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: darkgray;
+	text-decoration: none;
+}
+
+.lang-switcher {
+	font-size: 16px;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 2px 6px;
+	border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.lang-switcher:hover, .link-item:hover, .attribution-link:hover {
+    opacity: 0.8 !important;
+}
+
 .unselectable {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -110,11 +222,18 @@ body {
 	user-select: none; /* Non-prefixed version, currently not supported by any browser */
 }
 
-.info-content > h1 {
-	line-clamp: 2;
-	-webkit-line-clamp: 2;
-	text-overflow: ellipsis;
-	display: -webkit-inline-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+/* todo: Адаптивность */
+@media (max-width: 768px) {
+	.profile-container {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.profile-container .banners {
+		position: static;
+		margin-left: 0;
+		margin-top: 30px;
+		width: 100%;
+		max-width: 860px;
+	}
 }

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		'/img/noelle.jpg', // default
 		'/img/among-us-avatar.png', // among us
 		'/img/infinite_by_prekoler.png', // моя коммишка от vk.com/prekoler
-		'/img/rekvizit.png', // я не придумал, я просто люблю эту пикчу
+		'/img/rekvizit.png', // я не придумал, просто люблю эту пикчу
 		'/img/CY-ZPKxcFU0.jpg', // default
 		'https://img.guildedcdn.com/UserAvatar/ba5945958bb2f482717e0e795d30d447-Large.webp?w=450&h=450', // guilded / tatsumaki
 		'https://ru.gravatar.com/userimage/184665281/3093176e9bb3b54c049fd1e80570835c?size=original' // gravatar
@@ -44,3 +44,37 @@ function displayStatusSong(author, title, url = "") {
 }
 // displayStatusSong("example artist", "example title")
 // displayStatusSong("VERY VERY LONG EXAMPLE ARTIST NAME", "VERY VERY LONG EXAMPLE TRACK NAME")
+
+function switchLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(element => {
+        if (!element.classList.contains('lang-switcher')) {
+            if (element.getAttribute('data-lang') === lang) {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+    });
+    document.querySelectorAll('.lang-switcher').forEach(switcher => {
+        if (switcher.getAttribute('data-lang') === lang) {
+            switcher.style.opacity = '1';
+            switcher.style.fontWeight = 'bold';
+        } else {
+            switcher.style.opacity = '0.6';
+            switcher.style.fontWeight = 'normal';
+        }
+    });
+    document.documentElement.lang = lang;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.lang-switcher').forEach(switcher => {
+        switcher.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            switchLanguage(lang);
+        });
+    });
+    
+    // Initialize with English as default
+    switchLanguage('en');
+});

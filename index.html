@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./main.css?18">
+	<link rel="stylesheet" href="./main.css?21">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 	<!-- Open Graph -->
 	<meta property="og:type" content="profile">
-	<meta property="og:locale" content="ru_RU">
+	<meta property="og:locale" content="en_US">
 	<meta property="og:title" content="Igordos">
 	<meta property="og:description" content='Он же igodra, он же "король вернулся"'>
 	<meta property="og:site_name" content="igordos.dev">
@@ -19,12 +19,13 @@
 	<meta name="owner" content="igordos@vivaldi.net">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta name="resource-type" content="Homepage">
-	<meta http-equiv="content-language" content="ru">
+	<meta http-equiv="content-language" content="en">
 	<meta name="pinterest-rich-pin" content="false" />
-	<title>Не смотря на всё, это всё ещё я</title>
+	<title data-lang="en">Despite everything, it's still me.</title>
+	<title data-lang="ru">Не смотря ни на что, это всё ещё я.</title>
 	<!-- JS -->
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="./index.js?11"></script>
+	<script src="./index.js?21"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<link rel="shortcut icon" href='' type="image/x-icon" id="icon">
 	<link rel="icon" href='' id="icon">
@@ -38,30 +39,66 @@
 	<div class="content">
 		<div class="profile-container">
 			<img class="avatar" alt="Аватар" id="avatar" src='/img/noelle.jpg'>
+			<div class="links-box">
+				<a href="https://ovk.to/pepega" class="link-item"><span>OpenVK</span><img class="up-link" alt="ovk" src="https://raw.githubusercontent.com/openvk/openvk/master/Web/static/img/logo.svg"></a>
+				<a href="https://t.me/igodra" class="link-item"><span>Telegram</span><i class="fab fa-telegram-plane"></i></a>
+				<a href="https://last.fm/ru/user/Igordos" class="link-item"><span>last.fm</span><i class="fab fa-lastfm"></i></a>
+				<a href="https://steamcommunity.com/id/Igordos_YT/" class="link-item"><span>Steam</span><i class="fab fa-steam"></i></a>
+				<a href="https://www.reddit.com/u/IgordosDev" class="link-item"><span>Reddit</span><i class="fab fa-reddit-alien"></i></a>
+				<a href="/gallery" class="link-item"><span>My gallery</span><i class="fas fa-image"></i></a>
+			</div>
 			<div class="info-box">
 				<div class="info-content">
 					<h1>
-						Igordos<span style="opacity: 50%" alt="not really">Dev</span> 
+						Igordos<span style="opacity: 50%" title="not really">Dev</span>
 						<span id="status">
-							<span class='status'> is listening to 
+							<span class='status' data-lang="en"> is listening to
 								<a class='song unselectable' id="statusSong">
 									<span id="statusSongArtist"></span> — <span id="statusSongTitle"></span>
 								</a>
 							</span>
-							<noscript>/igodra</noscript>
+							<span class='status' data-lang="ru"> is listening to
+								<a class='song unselectable' id="statusSong">
+									<span id="statusSongArtist"></span> — <span id="statusSongTitle"></span>
+								</a>
+							</span>
 						</span>
+						<noscript>/ igodra</noscript>
 					</h1>
-					<p>
+					<p data-lang="en">
 						Welcome to my page! Here I want to share some information about me. Not really much, but anyway.
 					</p>
-					<p>I understand:</p>
-					<p>
-						You’re also can find me with a lime fox on avatar, thats mine sonicsona, another works for me you can find <a href='/gallery'>here</a>.
+					<p data-lang="ru">
+						Сюрприз-сюрприз ублюдки, король вернулся
+					</p>
+					<p data-lang="en">I understand:
+						<span class="lang-switcher unselectable" style="cursor: pointer; color: lightblue" data-lang="en">● <span style="color: white">English</span></span>,
+						<span class="lang-switcher unselectable" style="cursor: pointer; color: lightcoral" data-lang="ru">● <span style="color: white">Русский</span></span>
+					</p>
+					<p data-lang="ru">Из языков я знаю:
+						<span class="lang-switcher unselectable" style="cursor: pointer; color: lightblue" data-lang="en">● <span style="color: white">English</span></span>,
+						<span class="lang-switcher unselectable" style="cursor: pointer; color: lightcoral" data-lang="ru">● <span style="color: white">Русский</span></span>
+					</p>
+					<p data-lang="en">
+						You're also can find me with a lime fox on avatar, thats mine sonicsona, another works for me you can find <a style="color: plum" href='/gallery'>here</a>.
+					</p>
+					<p data-lang="ru">
+						Вы могли найти меня с зелёной лисой на аватарке - это моя сониксона. Другие работы вы можете найти в <a style="color: plum" href='/gallery'>моей галерее</a>.
 					</p>
 				</div>
 			</div>
+			<div class="banners">
+				<div class="wide-banners">
+					<a class="image" href="https://mynickname.com/Igordos"><img src="https://mynickname.com/img.php?nick=Igordos&sert=23&text=t0" alt="mynickname.com"></a>
+				</div><div class="buttons-banners">
+					<a class="image" href="http://veselcraft.ru/"><img src="/img/vc-banner.gif" alt="veselcraft" border="0"></a>
+					<a class="image" href="https://myslivets.com"><img src="/img/myslivets-banner.png" alt="myslivets" border="0"></a>
+					<a class="image" href="http://w01te.narod.ws"><img src="/img/w01te-banner.gif" title="w01te's personal web-site" alt="w01te's personal web-site" border="0"></a>
+					<a class="image" href="https://t.me/+G-bU7huIe5o2MDYy"><img src="/img/kakava-banner.gif" border="0" title="Канал с какавой" alt="Канал Какавы"></a>
+				</div>
+			</div>
+			<a class="attribution-link" href="https://github.com/IgordosDev/PersonalPage">©</a>
 		</div>
 	</div>
 </body>
-
 </html>
