@@ -24,15 +24,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(document).ready(function () {
-	$.getJSON("/last.fm_api.php", function (data) {
-		if (data.recenttracks.track[0].date) {
-			$("#status").text("/ igodra");
+	function updateStatus() {
+		// Check if not mobile device (screen width > 768px)
+		if (window.innerWidth > 768) {
+			$.getJSON("/last.fm_api.php", function (data) {
+				if (data.recenttracks.track[0].date) {
+					$("#status").text("/ igodra");
+				} else {
+					const trackName = data.recenttracks.track[0].name;
+					const artistName = data.recenttracks.track[0].artist["#text"];
+					const url = "https://www.last.fm/music/" + encodeURIComponent(artistName) + "/_/" + encodeURIComponent(trackName);
+					displayStatusSong(artistName, trackName, url)
+				}
+			});
 		} else {
-			const trackName = data.recenttracks.track[0].name;
-			const artistName = data.recenttracks.track[0].artist["#text"];
-			const url = "https://www.last.fm/music/" + encodeURIComponent(artistName) + "/_/" + encodeURIComponent(trackName);
-			displayStatusSong(artistName, trackName, url)
+			// On mobile, just show "/ igodra"
+			$("#status").text("/ igodra");
 		}
+	}
+	
+	// Initial load
+	updateStatus();
+	
+	// Handle window resize
+	$(window).resize(function() {
+		updateStatus();
 	});
 });
 
@@ -65,6 +81,12 @@ function switchLanguage(lang) {
         }
     });
     document.documentElement.lang = lang;
+    
+    // Update title
+    const titleElement = document.querySelector(`title[data-lang="${lang}"]`);
+    if (titleElement) {
+        document.title = titleElement.textContent;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -77,4 +99,49 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Initialize with English as default
     switchLanguage('en');
+});
+
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const overlay = document.querySelector('.overlay');
+    
+    if (mobileMenuToggle && mobileNav && overlay) {
+        // Toggle mobile menu
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+        
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', function() {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+        
+        // Close menu when clicking nav links
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+        
+        // Close menu when pressing escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    }
 });
