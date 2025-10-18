@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $(document).ready(function () {
 	function updateStatus() {
-		// Check if not mobile device (screen width > 768px)
+		// Always show placeholder
+		$("#status").text("/ igodra").css("display", "inline");
+		/*
 		if (window.innerWidth > 768) {
 			$.getJSON("/last.fm_api.php", function (data) {
 				if (data.recenttracks.track[0].date) {
@@ -38,15 +40,13 @@ $(document).ready(function () {
 				}
 			});
 		} else {
-			// On mobile, just show "/ igodra"
-			$("#status").text("/ igodra");
+			$("#status").text("/ igodra").css("display", "inline");
 		}
+		*/
 	}
 	
-	// Initial load
 	updateStatus();
-	
-	// Handle window resize
+
 	$(window).resize(function() {
 		updateStatus();
 	});
@@ -62,10 +62,18 @@ function displayStatusSong(author, title, url = "") {
 // displayStatusSong("VERY VERY LONG EXAMPLE ARTIST NAME", "VERY VERY LONG EXAMPLE TRACK NAME")
 
 function switchLanguage(lang) {
+    document.querySelectorAll('details').forEach(details => {
+        details.open = false;
+    });
+    
     document.querySelectorAll('[data-lang]').forEach(element => {
         if (!element.classList.contains('lang-switcher')) {
             if (element.getAttribute('data-lang') === lang) {
-                element.style.display = 'block';
+                if (element.classList.contains('link-item')) {
+                    element.style.display = 'flex';
+                } else {
+                    element.style.display = 'block';
+                }
             } else {
                 element.style.display = 'none';
             }
@@ -82,66 +90,9 @@ function switchLanguage(lang) {
     });
     document.documentElement.lang = lang;
     
-    // Update title
-    const titleElement = document.querySelector(`title[data-lang="${lang}"]`);
-    if (titleElement) {
-        document.title = titleElement.textContent;
-    }
+    const titles = {
+        'en': 'Despite everything, it\'s still me.',
+        'ru': 'Не смотря ни на что, это всё ещё я.'
+    };
+    document.title = titles[lang] || titles['en'];
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.lang-switcher').forEach(switcher => {
-        switcher.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            switchLanguage(lang);
-        });
-    });
-    
-    // Initialize with English as default
-    switchLanguage('en');
-});
-
-// Mobile menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const overlay = document.querySelector('.overlay');
-    
-    if (mobileMenuToggle && mobileNav && overlay) {
-        // Toggle mobile menu
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenuToggle.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
-        
-        // Close menu when clicking overlay
-        overlay.addEventListener('click', function() {
-            mobileMenuToggle.classList.remove('active');
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-        });
-        
-        // Close menu when clicking nav links
-        mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-        
-        // Close menu when pressing escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            }
-        });
-    }
-});
