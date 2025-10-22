@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./main.css?31">
+	<link rel="stylesheet" href="./main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 	<!-- Open Graph -->
 	<meta property="og:type" content="profile">
@@ -24,7 +24,7 @@
 	<title>Despite everything, it's still me.</title>
 	<!-- JS -->
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="./index.js?31"></script>
+	<script src="./index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<link rel="shortcut icon" href='' type="image/x-icon" id="icon">
 	<link rel="icon" href='' id="icon">
@@ -56,7 +56,7 @@
 							<span class='status'>
 								<span data-lang="en">is listening to</span>
 								<span data-lang="ru">слушает</span>
-								<a class='song unselectable' id="statusSong">
+								<a class='song' id="statusSong">
 									<span id="statusSongArtist"></span> — <span id="statusSongTitle"></span>
 								</a>
 							</span>
@@ -77,15 +77,15 @@
 						<span onclick="switchLanguage('en')" class="lang-switcher unselectable" style="cursor: pointer; color: lightblue" data-lang="en">● <span style="color: white">English</span></span>,
 						<span onclick="switchLanguage('ru')" class="lang-switcher unselectable" style="cursor: pointer; color: lightcoral" data-lang="ru">● <span style="color: white">Русский</span></span>
 					</p>
-					<details><summary data-lang="en">My main device is <span class="device unselectable"><i class="fab fa-google"></i> Pixel 7 Pro</span>, others is in that spoiler.</summary>
-						<span class="device unselectable"><i class="fab fa-windows"></i> Nokia Lumia 1320</span>, <span class="device unselectable" title="it fuckin sucks"><img src="./img/garbage.svg" style="width: 16px; filter: invert(); position: relative; top: 3px"></i> Redmi Note 13 4G</span>, <span class="device unselectable"><i class="fab fa-android"></i> Alcatel One Touch Pixi 4013D</span>, <span class="device unselectable"><i class="fab fa-linux" title="i'm sorry, i can't any other logo for symbian"></i> Nokia C6</span>, <span class="device unselectable"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Windows_logo_-_2002%E2%80%932012_%28Black%29.svg" style="width: 16px; filter: invert()"> HTC Touch Diamond</span>. Soon I will get a <span class="device unselectable"><i class="fab fa-amazon"></i> Kindle PW2</span>.
+					<details><summary data-lang="en">My main device is <span class="device"><i class="fab fa-google"></i> Pixel 7 Pro</span>, others is in that spoiler.</summary>
+						<span class="device"><i class="fab fa-google"></i> Pixel Watch</span>, <span class="device"><i class="fab fa-windows"></i> Nokia Lumia 1320</span>, <span class="device" title="it fuckin sucks"><img src="./img/garbage.svg" style="width: 16px; filter: invert(); position: relative; top: 3px"></i> Redmi Note 13 4G</span>, <span class="device"><i class="fab fa-android"></i> Alcatel One Touch Pixi 4013D</span>, <span class="device"><i class="fab fa-linux" title="i'm sorry, i can't any other logo for symbian"></i> Nokia C6</span>, <span class="device"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Windows_logo_-_2002%E2%80%932012_%28Black%29.svg" style="width: 16px; filter: invert()"> HTC Touch Diamond</span>. Soon I will get a <span class="device"><i class="fab fa-amazon"></i> Kindle PW2</span>.
 					</details>
-						<p data-lang="en">Also a <span class="device unselectable"><img src="./img/Steam_Deck.svg" style="filter: invert(); width: 16px; position: relative; top: 2px;"> Steam Deck LCD</span> enjoyer <img src="https://www.steamgriddb.com/static/img/boop/linuxchad-icon.png" width=23px style="position: relative; top: 3px" title="linuxchad">
+						<p data-lang="en">Also a <span class="device"><img src="./img/Steam_Deck.svg" style="filter: invert(); width: 16px; position: relative; top: 2px;"> Steam Deck LCD</span> enjoyer <img src="https://www.steamgriddb.com/static/img/boop/linuxchad-icon.png" width=23px style="position: relative; top: 3px" title="linuxchad">
 						</p>
-					<details><summary data-lang="ru">Мой основной телефон это <span class="device unselectable"><i class="fab fa-google"></i> Pixel 7 Pro</span>, остальные в этом спойлере.</summary>
-						<span class="device unselectable"><i class="fab fa-windows"></i> Nokia Lumia 1320</span>, <span class="device unselectable" title="абсолютный мусор"><img src="./img/garbage.svg" style="width: 16px; filter: invert(); position: relative; top: 3px"></i> Redmi Note 13 4G</span>, <span class="device unselectable"><i class="fab fa-android"></i> Alcatel One Touch Pixi 4013D</span>, <span class="device unselectable"><i class="fab fa-linux" title="я не могу найти другой логотип для symbian, пусть будет так"></i> Nokia C6</span>, <span class="device unselectable"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Windows_logo_-_2002%E2%80%932012_%28Black%29.svg" style="width: 16px; filter: invert()"> HTC Touch Diamond</span>. Скоро ко мне доставят <span class="device unselectable"><i class="fab fa-amazon"></i> Kindle PW2</span>.
+					<details><summary data-lang="ru">Мой основной телефон это <span class="device"><i class="fab fa-google"></i> Pixel 7 Pro</span>, остальные в этом спойлере.</summary>
+						<span class="device"><i class="fab fa-google"></i> Pixel Watch</span>, <span class="device"><i class="fab fa-windows"></i> Nokia Lumia 1320</span>, <span class="device" title="абсолютный мусор"><img src="./img/garbage.svg" style="width: 16px; filter: invert(); position: relative; top: 3px"></i> Redmi Note 13 4G</span>, <span class="device"><i class="fab fa-android"></i> Alcatel One Touch Pixi 4013D</span>, <span class="device"><i class="fab fa-linux" title="я не могу найти другой логотип для symbian, пусть будет так"></i> Nokia C6</span>, <span class="device"><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Windows_logo_-_2002%E2%80%932012_%28Black%29.svg" style="width: 16px; filter: invert()"> HTC Touch Diamond</span>. Скоро ко мне доставят <span class="device"><i class="fab fa-amazon"></i> Kindle PW2</span>.
 					</details>
-						<p data-lang="ru">А ещё я довольный юзер <span class="device unselectable"><img src="./img/Steam_Deck.svg" style="filter: invert(); width: 16px; position: relative; top: 2px;"> Steam Deck LCD</span> <img src="https://www.steamgriddb.com/static/img/boop/linuxchad-icon.png" width=23px style="position: relative; top: 3px" title="linuxchad">
+						<p data-lang="ru">А ещё я довольный юзер <span class="device"><img src="./img/Steam_Deck.svg" style="filter: invert(); width: 16px; position: relative; top: 2px;"> Steam Deck LCD</span> <img src="https://www.steamgriddb.com/static/img/boop/linuxchad-icon.png" width=23px style="position: relative; top: 3px" title="linuxchad">
 						</p>
 					<p data-lang="en">
 						You're also can find me with a lime fox on avatar, thats mine sonicsona, another works for me you can find <a style="color: plum" href='/gallery'>here</a>.

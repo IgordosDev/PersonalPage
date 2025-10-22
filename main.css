@@ -212,6 +212,10 @@ body {
     display: inline-block;
 }
 
+.device {
+	cursor: default;
+}
+
 .lang-switcher:hover, .link-item:hover, .attribution-link:hover {
     opacity: 0.8 !important;
 }
