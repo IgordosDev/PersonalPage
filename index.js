@@ -62,7 +62,7 @@ function displayStatusSong(author, title, url = "") {
 // displayStatusSong("VERY VERY LONG EXAMPLE ARTIST NAME", "VERY VERY LONG EXAMPLE TRACK NAME")
 
 function switchLanguage(lang) {
-	for (const element of document.getElementsByClassName("details")) element.open = false;
+	for (const element of document.getElementsByTagName("details")) element.open = false;
     
     document.querySelectorAll('[data-lang]').forEach(element => {
         if (!element.classList.contains('lang-switcher')) {
