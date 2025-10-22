@@ -25,13 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $(document).ready(function () {
 	function updateStatus() {
-		// Always show placeholder
-		$("#status").text("/ igodra").css("display", "inline");
-		/*
 		if (window.innerWidth > 768) {
 			$.getJSON("/last.fm_api.php", function (data) {
 				if (data.recenttracks.track[0].date) {
-					$("#status").text("/ igodra");
+					displayStatusPlaceholder();
 				} else {
 					const trackName = data.recenttracks.track[0].name;
 					const artistName = data.recenttracks.track[0].artist["#text"];
@@ -40,9 +37,8 @@ $(document).ready(function () {
 				}
 			});
 		} else {
-			$("#status").text("/ igodra").css("display", "inline");
+			displayStatusPlaceholder();
 		}
-		*/
 	}
 	
 	updateStatus();
@@ -51,6 +47,10 @@ $(document).ready(function () {
 		updateStatus();
 	});
 });
+
+function displayStatusPlaceholder() {
+	$("#status").text("/ igodra").css("display", "inline");
+}
 
 function displayStatusSong(author, title, url = "") {
 	document.getElementById("status").style.display = "inline";
@@ -62,9 +62,7 @@ function displayStatusSong(author, title, url = "") {
 // displayStatusSong("VERY VERY LONG EXAMPLE ARTIST NAME", "VERY VERY LONG EXAMPLE TRACK NAME")
 
 function switchLanguage(lang) {
-    document.querySelectorAll('details').forEach(details => {
-        details.open = false;
-    });
+	for (const element of document.getElementsByClassName("details")) element.open = false;
     
     document.querySelectorAll('[data-lang]').forEach(element => {
         if (!element.classList.contains('lang-switcher')) {
@@ -72,7 +70,7 @@ function switchLanguage(lang) {
                 if (element.classList.contains('link-item')) {
                     element.style.display = 'flex';
                 } else {
-                    element.style.display = 'block';
+                    element.style.display = 'revert';
                 }
             } else {
                 element.style.display = 'none';

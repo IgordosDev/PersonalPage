@@ -276,7 +276,7 @@ noscript .link-item[data-lang="en"] {
 }
 
 [data-lang="en"]:not(.lang-switcher) {
-    display: block;
+    display: revert;
 }
 
 .link-item[data-lang="ru"] {
