@@ -190,7 +190,8 @@ body {
     position: absolute;
     left: 270px;
     top: 100%;
-    margin-top: 90px;
+    /* margin-top: 90px; with wide-banners */
+	margin-top: 60px;
     width: 860px;
     display: flex;
     justify-content: center;

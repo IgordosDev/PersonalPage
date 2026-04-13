@@ -31,8 +31,8 @@ $(document).ready(function () {
 				} else {
 					const trackName = data.recenttracks.track[0].name;
 					const artistName = data.recenttracks.track[0].artist["#text"];
-					const url = "https://www.last.fm/music/" + encodeURIComponent(artistName) + "/_/" + encodeURIComponent(trackName);
-					displayStatusSong(artistName, trackName, url)
+				//	const url = "https://www.last.fm/music/" + encodeURIComponent(artistName) + "/_/" + encodeURIComponent(trackName);
+					displayStatusSong(artistName, trackName) // , url)
 				}
 			});
 		} else {
@@ -51,9 +51,9 @@ function displayStatusPlaceholder() {
 	$("#status").text("/ igodra").css("display", "inline");
 }
 
-function displayStatusSong(author, title, url = "") {
+function displayStatusSong(author, title) { // , url = "") {
 	document.getElementById("status").style.display = "inline";
-	document.getElementById("statusSong").href = url;
+//	document.getElementById("statusSong").href = url;
 	document.getElementById("statusSongArtist").innerText = author;
 	document.getElementById("statusSongTitle").innerText = title;
 }
