@@ -5,6 +5,7 @@ body {
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
 }
 
 .background-image {
@@ -100,7 +101,7 @@ body {
 .song {
 	color: #A93232;
 	text-decoration: none;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 #status {
@@ -243,6 +244,10 @@ summary {
 	align-items: center;
 	justify-content: space-between;
 	list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
 }
 
 summary::after {

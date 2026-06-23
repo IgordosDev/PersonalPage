@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 	const images = [
-		'https://avatars.githubusercontent.com/u/6939218', // github
+		'https://avatars.githubusercontent.com/u/6939218',
 		'/img/last.fm-avatar.gif',
 		'/img/openvk-avatar.png', // openvk avatar by mitsvalen
 		'/img/noelle.jpg', // default
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(document).ready(function () {
-	function updateStatus() { /*
+	function updateStatus() {
 		if (window.innerWidth > 768) {
 			$.getJSON("/last.fm_api.php", function (data) {
 				if (data.recenttracks.track[0].date) {
@@ -35,28 +35,28 @@ $(document).ready(function () {
 					displayStatusSong(artistName, trackName) // , url)
 				}
 			});
-		} else */ {
+		} else {
 			displayStatusPlaceholder();
 		}
 	}
 	
 	updateStatus();
 
-	/* $(window).resize(function() {
+	$(window).resize(function() {
 		updateStatus();
-	}); */
+	});
 })
 
 function displayStatusPlaceholder() {
 	$("#status").text("/ igodra").css("display", "inline");
 }
 
-/* function displayStatusSong(author, title) { // , url = "") {
+function displayStatusSong(author, title) { // , url = "") {
 	document.getElementById("status").style.display = "inline";
 //	document.getElementById("statusSong").href = url;
 	document.getElementById("statusSongArtist").innerText = author;
 	document.getElementById("statusSongTitle").innerText = title;
-} */
+}
 // displayStatusSong("example artist", "example title")
 // displayStatusSong("VERY VERY LONG EXAMPLE ARTIST NAME", "VERY VERY LONG EXAMPLE TRACK NAME")
 
